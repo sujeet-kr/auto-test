@@ -1,4 +1,4 @@
-package utilities;
+package utilities.autotest;
 
 public class DataFileReader {
 }
