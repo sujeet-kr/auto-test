@@ -8,13 +8,13 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class DriverBI {
+public class DriverFactory {
 
     private WebDriver driver;
     private String driverLocation = "/Users/MacJae/WebDriverServers/";
     private String browserName = "Chrome";
 
-    public DriverBI(){
+    public DriverFactory(){
         System.setProperty("webdriver.gecko.driver", driverLocation + "geckodriver" );
         System.setProperty("webdriver.chrome.driver", driverLocation + "chromedriver");
     }
