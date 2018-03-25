@@ -33,13 +33,15 @@ public class LoginPage {
         this.data = dataFileReader.getData();
     }
 
+    public boolean checkLoginPage(){
+        return username.isDisplayed();
+    }
+
     public void loginToApplication(){
         JsonNode userData = data.get("default-user");
-
         username.sendKeys(userData.get("username").asText());
         password.sendKeys(userData.get("password").asText());
         loginButton.click();
-
     }
 
 }

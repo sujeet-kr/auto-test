@@ -3,6 +3,7 @@ package core.autotest.driver;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import org.openqa.selenium.WebDriver;
+import utilities.autotest.DataFileReader;
 
 public class StepsStartHook {
 
@@ -14,6 +15,8 @@ public class StepsStartHook {
         if(!initialized){
             this.driver = new DriverFactory().createWebDriver();
             initialized = true;
+            DataFileReader envData = new DataFileReader("EnvironmentDetails.yml");
+            driver.get(envData.getEnvironmentData().get("System-Testing").get("url").asText());
         }
     }
 
