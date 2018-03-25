@@ -1,6 +1,7 @@
 Test Automation Framework for UI/API/Mobile applications
 
- - Java
+ - Cucumber
+ - Java / POM / Page Factory
  - Selenium Webdriver
  - REST Assured
  - Appium

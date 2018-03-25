@@ -19,7 +19,7 @@ public class DataFileReader {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         JsonNode json = null;
         try {
-            json = mapper.readTree(new File("./src/main/resources/DataFiles/" + fileName));
+            json = mapper.readTree(new File("./UI_Suite/src/main/resources/DataFiles/" + fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,7 +30,7 @@ public class DataFileReader {
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
         JsonNode json = null;
         try {
-            json = mapper.readTree(new File("./src/main/resources/Environment/" + fileName));
+            json = mapper.readTree(new File("./UI_Suite/src/main/resources/Environment/" + fileName));
         } catch (IOException e) {
             e.printStackTrace();
         }
