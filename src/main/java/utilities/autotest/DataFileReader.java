@@ -1,31 +1,28 @@
 package utilities.autotest;
 
 
-import org.yaml.snakeyaml.Yaml;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
 
 public class DataFileReader {
-    Yaml yaml;
+    String fileName;
 
-    public Iterable<Object> getDataFromFile(String fileName) {
+    public DataFileReader(String fileName){
+        this.fileName = fileName;
+    }
 
-
-        yaml = new Yaml();
-        Iterable<Object> iterable = null;
-
-        try(InputStream inputStream = DataFileReader.class.getResourceAsStream("../../..resources/DataFiles/" + fileName + ".yml")) {
-            iterable = yaml.loadAll(inputStream);
-
-            Map<String, String> yamlParsers = (Map<String, String>) yaml.load(inputStream);
-
-            System.out.println(yamlParsers);
+    public JsonNode getData(){
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        JsonNode json = null;
+        try {
+            json = mapper.readTree(new File("./src/main/resources/DataFiles/" + fileName));
         } catch (IOException e) {
-            System.out.println("Exception Occured!!!!");
+            e.printStackTrace();
         }
-
-        return iterable;
+        return json;
     }
 }
