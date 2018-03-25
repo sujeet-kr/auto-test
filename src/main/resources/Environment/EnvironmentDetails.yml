@@ -1,0 +1,8 @@
+System-Testing:
+  url: http://newtours.demoaut.com
+
+Regression:
+  url: http://www.sujeet.com
+
+Production:
+  url: http://www.sujeet.com

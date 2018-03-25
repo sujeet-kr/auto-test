@@ -25,4 +25,15 @@ public class DataFileReader {
         }
         return json;
     }
+
+    public JsonNode getEnvironmentData(){
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        JsonNode json = null;
+        try {
+            json = mapper.readTree(new File("./src/main/resources/Environment/" + fileName));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
+    }
 }

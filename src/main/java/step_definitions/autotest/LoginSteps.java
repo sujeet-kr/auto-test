@@ -1,6 +1,5 @@
 package step_definitions.autotest;
 
-import com.sun.xml.internal.rngom.parse.host.Base;
 import core.autotest.driver.StepsStartHook;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -24,13 +23,12 @@ public class LoginSteps{
 
     @Given("^I am at the login page$")
     public void iAmAtTheLoginPage() throws Throwable {
-        String url = "http://newtours.demoaut.com";
-        driver.get(url);
+        loginPage = new LoginPage(driver);
+        Assert.assertTrue(loginPage.checkLoginPage());
     }
 
     @When("^I login to the application$")
     public void iLoginToTheApplication() throws Throwable {
-        loginPage = new LoginPage(driver);
         loginPage.loginToApplication();
     }
 
