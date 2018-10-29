@@ -1,6 +1,8 @@
 package step_definitions.autotest;
 
 import core.autotest.driver.StepsStartHook;
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,5 +38,10 @@ public class LoginSteps{
     public void iNavigateToTheFlightFinderPageOfTheApplication() throws Throwable {
         flightFinderPage = new FlightFinderPage(driver);
         Assert.assertTrue(flightFinderPage.visibilityOfPassengerCount());
+    }
+
+    @And("^I see the action for move to footer happed$")
+    public void iSeeTheActionForMoveToFooterHapped() throws Throwable {
+       flightFinderPage.moveToFooter();
     }
 }
